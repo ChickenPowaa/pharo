@@ -10,17 +10,18 @@ Class {
 
 { #category : 'arithmetic' }
 DiceHandle >> + anotherHandle [
-    | result |
-    result := DiceHandle new.
-    result dice addAll: self dice.
-    result dice addAll: anotherHandle dice.
-    ^ result.
-
+    ^ self roll + anotherHandle roll.
 ]
 
 { #category : 'adding' }
-DiceHandle >> addDie: aDie times: aNumber [
-    aNumber timesRepeat: [ dice add: aDie ].
+DiceHandle >> addDie: aDie [
+    dice add: aDie.
+]
+
+{ #category : 'as yet unclassified' }
+DiceHandle >> diceNumber [
+    "Retourne le nombre de dés dans le gestionnaire."
+    ^ dice size.
 ]
 
 { #category : 'initialization' }
@@ -31,7 +32,7 @@ DiceHandle >> initialize [
 { #category : 'as yet unclassified' }
 DiceHandle >> roll [
     "Lancer tous les dés et retourner la somme des résultats."
-    ^ dice collect: [ :each | each roll ] sum.
+    ^ dice sum: [ :each | each roll ]
 ]
 
 { #category : 'accessing' }
