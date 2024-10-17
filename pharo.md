@@ -25,10 +25,7 @@ positionY := 0.
             size: ((50) // 2) @ (50 // 2);
             background: Color white;
 				outskirts: BlOutskirts centered;
-            effect: (BlSimpleGlowEffect new
-                color: Color yellow; "Couleur de la lumière"
-                strength: 10; "Intensité de la lumière"
-                yourself).
+            effect: (BlGaussianShadowEffect color: Color yellow offset: 0 @ 0 width: 10).
         
         circle position: 12.5 @ 12.5.
         square addChild: circle.
