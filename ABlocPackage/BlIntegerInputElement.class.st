@@ -66,21 +66,6 @@ BlIntegerInputElement >> increaseInput [
 ]
 
 { #category : 'initialization' }
-BlIntegerInputElement >> initialize [
-
-	super initialize.
-	self size: self inputExtent.
-	self background: self backgroundPaint.
-	self geometry: (BlRoundedRectangleGeometry cornerRadius: 20).
-	self layout: BlFrameLayout new.
-	self border: (BlBorder paint: Color pink).
-	self initializePlusButton.
-	self initializeMinusButton.
-	self initializeInputValue: 20.
-	self label: 'Input'
-]
-
-{ #category : 'initialization' }
 BlIntegerInputElement >> initializeInputValue: aValue [
 
 	callbackBlock := [ :newInputValue | ].
@@ -158,4 +143,10 @@ BlIntegerInputElement >> label: aString [
 	inputLabel constraintsDo: [ :c | c frame horizontal alignCenter ].
 	inputLabel transformDo: [ :t | t translateBy: 0 @ 10 ].
 	self addChild: inputLabel
+]
+
+{ #category : 'as yet unclassified' }
+BlIntegerInputElement >> shields [ 
+ ^ Ship shields 
+
 ]
